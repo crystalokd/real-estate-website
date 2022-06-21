@@ -43,8 +43,8 @@ def search(request):
     # lga
     if 'lga' in request.GET:
         city = request.GET['lga']
-        if lga:
-            queryset_list = queryset_list.filter(lga__iexact=lga)
+        if city:
+            queryset_list = queryset_list.filter(lga__iexact=city)
 
     # state
     if 'state' in request.GET:
