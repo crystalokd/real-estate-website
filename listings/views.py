@@ -3,7 +3,7 @@ from re import template
 from django.shortcuts import render, get_object_or_404
 from .models import Listing
 from django.core.paginator import EmptyPage, Paginator
-from .choices import price_choices, bedroom_choices, lga_choices
+from .choices import price_choices, bedroom_choices, lga_choices, state_choices
 
 # Create your views here.
 
@@ -65,6 +65,8 @@ def search(request):
             queryset_list = queryset_list.filter(price__lte=price)
 
     context = {
+
+        'state_choices': state_choices,
         'lga_choices': lga_choices,
         'bedroom_choices': bedroom_choices,
         'price_choices': price_choices,
