@@ -1,3 +1,5 @@
+from pyexpat import model
+from re import template
 from django.shortcuts import render, get_object_or_404
 from .models import Listing
 from django.core.paginator import EmptyPage, Paginator
@@ -16,6 +18,9 @@ def index(request):
         'listings': paged_listings
     }
     return render(request, 'listings/listings.html', context)
+
+
+
 
 def listing(request, listing_id):
     listing = get_object_or_404(Listing, pk=listing_id)
